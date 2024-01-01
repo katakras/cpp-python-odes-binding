@@ -4,16 +4,12 @@ project(CPPyODEs VERSION 0.1.0 LANGUAGES C CXX)
 include(CTest)
 enable_testing()
 
-set(SOURCE_FILES
-    odes.cpp
-    vector.cpp
-    systems.cpp
-    matrix.cpp
-    interface.cpp)
+file(GLOB_RECURSE CPP_HEADERS ./*.hpp)
+file(GLOB_RECURSE CPP_SOURCES ./*.cpp)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_library(CPPyODEs SHARED ${SOURCE_FILES})
+add_library(CPPyODEs SHARED ${CPP_HEADERS} ${CPP_SOURCES})
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
