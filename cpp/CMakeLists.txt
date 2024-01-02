@@ -1,6 +1,21 @@
 include(CTest)
 enable_testing()
 
+FIND_PACKAGE(Boost COMPONENTS python unit_test_framework)
+FIND_PACKAGE(PythonInterp)
+FIND_PACKAGE(PythonLibs REQUIRED)
+
+set(CMAKE_CXX_STANDARD 20)
+
+set(Boost_USE_STATIC_LIBS ON)
+set(Boost_USE_MULTITHREADED ON)
+set(Boost_USE_STATIC_RUNTIME OFF)
+
+INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS} ${PYTHON_INCLUDE_DIRS})
+LINK_LIBRARIES(${Boost_LIBRARIES} ${PYTHON_LIBRARIES})
+
+set(LIB_PROJECT_NAME CPPyODEs)
+set(TEST_PROJECT_NAME CPPyODEsTestTest)
 
 add_subdirectory(lib)
 add_subdirectory(test)
