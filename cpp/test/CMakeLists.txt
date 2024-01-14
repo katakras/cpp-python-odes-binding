@@ -18,8 +18,6 @@ add_cpp_test(matrices/matrix_resizing)
 set(DYLIB_FOLDER "../../build/lib")
 target_link_libraries(${PROJECT_NAME} ${LIB_PROJECT_NAME})
 
-target_link_libraries(${PROJECT_NAME} ${LIB_PROJECT_NAME} ${Boost_LIBRARIES} ${PYTHON_LIBRARIES})
-
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)

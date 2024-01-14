@@ -38,8 +38,10 @@ private:
 
 class Matrix {
 public:
+
     Matrix(const size_t n_rows, const size_t n_cols);
     Matrix(Matrix&& m);
+    Matrix(const Matrix& m);
 
     ~Matrix();
 
@@ -62,7 +64,6 @@ private:
 
 };
 
-EXPORT_FUNCTION size_t get_matrix_n_rows(const Matrix* const m);
 EXPORT_FUNCTION size_t get_matrix_n_cols(const Matrix* const m);
 EXPORT_FUNCTION double get_matrix_element(const Matrix* const m, const size_t i_row, const size_t i_col);
 EXPORT_FUNCTION void delete_matrix(Matrix const* m);

@@ -15,7 +15,9 @@ INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS} ${PYTHON_INCLUDE_DIRS})
 LINK_LIBRARIES(${Boost_LIBRARIES} ${PYTHON_LIBRARIES})
 
 set(LIB_PROJECT_NAME CPPyODEs)
+set(LIB_PY_PROJECT_NAME odescppy)
 set(TEST_PROJECT_NAME CPPyODEsTest)
 
 add_subdirectory(lib)
+add_subdirectory(python_bindings)
 add_subdirectory(test)

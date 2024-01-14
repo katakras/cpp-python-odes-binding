@@ -28,6 +28,10 @@ Matrix::Matrix(Matrix&& m) : n_rows_(m.n_rows_), n_cols_(m.n_cols_), rows_(std::
 {
 }
 
+Matrix::Matrix(const Matrix& m) : n_rows_(m.n_rows_), n_cols_(m.n_cols_), rows_(m.rows_)
+{
+}
+
 Matrix::~Matrix()
 {
 }
@@ -48,10 +52,6 @@ void Matrix::resize(const size_t n_rows, const size_t n_cols)
 }
 
 
-size_t get_matrix_n_rows(const Matrix* const m) 
-{ 
-    return m->n_rows(); 
-}
 size_t get_matrix_n_cols(const Matrix* const m) 
 { 
     return m->n_cols(); 
