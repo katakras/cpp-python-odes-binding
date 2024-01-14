@@ -6,7 +6,7 @@
 #include <vector>
 #include <memory>
 
-#include "macros.hpp"
+#include "lib/macros.hpp"
 
 class Matrix;
 

@@ -5,7 +5,7 @@
 
 #include <vector>
 
-#include "macros.hpp"
+#include "lib/macros.hpp"
 
 
 EXPORT_FUNCTION std::vector<double>* make_vector(const size_t size, const double initial_value);

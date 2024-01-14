@@ -2,6 +2,6 @@
 #ifndef INTERFACE_HPP
 #define INTERFACE_HPP
 
-#include "macros.hpp"
+#include "lib/macros.hpp"
 
 #endif

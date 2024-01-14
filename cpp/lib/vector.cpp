@@ -1,4 +1,5 @@
-#include "vector.hpp"
+#include "lib/vector.hpp"
+
 
 std::vector<double>* make_vector(const size_t size, const double initial_value)
 {

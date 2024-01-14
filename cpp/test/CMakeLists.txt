@@ -1,8 +1,6 @@
 cmake_minimum_required(VERSION 3.0.0)
 project(${TEST_PROJECT_NAME} VERSION 0.1.0 LANGUAGES C CXX)
 
-set(LIB_HEADERS "../lib")
-include_directories(${LIB_HEADERS})
 
 file(GLOB_RECURSE CPP_SOURCES ./*.cpp)
 add_executable(${PROJECT_NAME} ${CPP_SOURCES})

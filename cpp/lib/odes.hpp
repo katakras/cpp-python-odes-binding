@@ -5,8 +5,8 @@
 
 #include <vector>
 
-#include "macros.hpp"
-#include "systems.hpp"
+#include "lib/macros.hpp"
+#include "lib/systems.hpp"
 
 class Matrix;
 

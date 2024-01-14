@@ -18,6 +18,9 @@ set(LIB_PROJECT_NAME CPPyODEs)
 set(LIB_PY_PROJECT_NAME odescppy)
 set(TEST_PROJECT_NAME CPPyODEsTest)
 
+set(INCLUDE_ROOT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+INCLUDE_DIRECTORIES(${INCLUDE_ROOT_DIRECTORY})
+
 add_subdirectory(lib)
 add_subdirectory(python_bindings)
 add_subdirectory(test)

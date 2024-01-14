@@ -1,8 +1,9 @@
+#include "lib/odes.hpp"
+
 #include <variant>
 #include <algorithm>
 
-#include "odes.hpp"
-#include "matrix.hpp"
+#include "lib/matrix.hpp"
 
 namespace
 {

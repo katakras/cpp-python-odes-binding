@@ -1,8 +1,9 @@
+#include "lib/systems.hpp"
+
 #include <cassert>
 #include <cmath>
 
-#include "systems.hpp"
-#include "matrix.hpp"
+#include "lib/matrix.hpp"
 
 namespace systems
 {

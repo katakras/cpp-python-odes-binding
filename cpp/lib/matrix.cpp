@@ -1,6 +1,7 @@
+#include "lib/matrix.hpp"
+
 #include <utility>
 
-#include "matrix.hpp"
 
 MatrixRow::MatrixRow(const size_t n_cols) : data_(n_cols, 0.0)
 {    
