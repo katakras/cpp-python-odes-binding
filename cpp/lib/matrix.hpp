@@ -49,7 +49,10 @@ public:
     size_t n_cols() const { return n_cols_; };
 
     std::shared_ptr<MatrixRow> operator[](const size_t i_row) { return rows_[i_row]; };
-    std::shared_ptr<const MatrixRow> operator[](const size_t i_row) const {return rows_[i_row]; };
+    std::shared_ptr<const MatrixRow> operator[](const size_t i_row) const { return rows_[i_row]; };
+
+    double& operator()(const size_t i_row, const size_t i_col);
+    double operator()(const size_t i_row, const size_t i_col) const;
 
     void insert_row(const std::vector<double>& r, const size_t i_row) { rows_[i_row] = std::make_shared<MatrixRow>(std::vector<double>(r.begin(), r.end())); }
     void insert_row(std::vector<double>&& r, const size_t i_row) { rows_[i_row] = std::make_shared<MatrixRow>(std::move(r)); }

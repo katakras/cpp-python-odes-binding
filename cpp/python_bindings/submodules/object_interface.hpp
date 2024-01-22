@@ -2,14 +2,11 @@
 #define PY_BINDINGS_OBJECT_INTERFACE_HPP
 
 #include <vector>
-
 #include <boost/python.hpp>
 
-std::vector<size_t> object_list();
+#include "python_bindings/common/macros.hpp"
 
-struct uint_vector_to_python
-{
-    static PyObject* convert(std::vector<size_t> const& v);
-};
+
+DECLARE_PYTHON_SUBMODULE(object_interface)
 
 #endif

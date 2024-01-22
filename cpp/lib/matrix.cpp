@@ -16,7 +16,12 @@ namespace
     std::vector<std::shared_ptr<MatrixRow>> create_initial_matrix_data(const size_t n_rows, const size_t n_cols)
     {
         const auto& make_row = [&n_cols](){return std::make_shared<MatrixRow>(n_cols); };
-        return std::vector<std::shared_ptr<MatrixRow>>(n_rows, make_row());
+        std::vector<std::shared_ptr<MatrixRow>> ret(n_rows, nullptr);
+        for(size_t i_row = 0; i_row < n_rows; ++i_row)
+        {
+            ret[i_row] = make_row();
+        }
+        return std::move(ret);
     }
 }
 
@@ -40,6 +45,7 @@ Matrix::~Matrix()
 void Matrix::resize(const size_t n_rows, const size_t n_cols)
 {
     const bool resizes_rows = n_cols == n_cols_ ? false : true;
+    const size_t previous_n_rows = n_rows_;
     n_rows_ = n_rows;
     n_cols_ = n_cols;
     if(resizes_rows) 
@@ -49,9 +55,22 @@ void Matrix::resize(const size_t n_rows, const size_t n_cols)
             row->resize(n_cols);
         }
     }
-    rows_.resize(n_rows, std::make_shared<MatrixRow>(n_cols));
+    rows_.resize(n_rows);
+    for (size_t i_row = previous_n_rows; i_row < n_rows; ++i_row)
+    {
+        rows_[i_row] = std::make_shared<MatrixRow>(n_cols);
+    }
 }
 
+double& Matrix::operator()(const size_t i_row, const size_t i_col)
+{
+    return (*rows_[i_row])[i_col];
+}
+
+double Matrix::operator()(const size_t i_row, const size_t i_col) const
+{
+    return (*rows_[i_row])[i_col];
+}
 
 size_t get_matrix_n_cols(const Matrix* const m) 
 { 
