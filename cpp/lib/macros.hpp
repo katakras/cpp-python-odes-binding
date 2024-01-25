@@ -3,6 +3,4 @@
 #ifndef MACROS_HPP
 #define MACROS_HPP
 
-#define EXPORT_FUNCTION extern "C"
-
 #endif

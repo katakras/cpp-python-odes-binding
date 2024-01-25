@@ -3,7 +3,6 @@
 
 #include "python_bindings/common/macros.hpp"
 
-
 DECLARE_PYTHON_SUBMODULE(systems);
 
 #endif
