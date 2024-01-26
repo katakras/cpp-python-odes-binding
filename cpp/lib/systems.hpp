@@ -6,13 +6,14 @@
 #include <vector>
 
 #include "lib/macros.hpp"
+#include "lib/storable.hpp"
 
 class Matrix;
 
 namespace systems
 {
 
-    class System
+    class System : public Storable
     {
     public:
         System() = default;
@@ -26,6 +27,8 @@ namespace systems
         ExponentialSystem(const double k);
         std::vector<double> f(const double t, const std::vector<double> &x) const override;
 
+        std::string storable_name() const override { return "ExponentialSystem"; }
+
     private:
         double k_;
     };
@@ -36,6 +39,8 @@ namespace systems
         CentralForceSystem(const double f);
         std::vector<double> f(const double t, const std::vector<double> &x) const override;
         std::shared_ptr<Matrix> transform(const std::shared_ptr<Matrix> &m) const override;
+
+        std::string storable_name() const override { return "CentralForceSystem"; }
 
     private:
         double f_;

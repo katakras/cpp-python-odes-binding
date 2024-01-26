@@ -44,21 +44,6 @@ ODEResults::ODEResults(std::vector<double> &&t, std::shared_ptr<Matrix> m) : t_(
 {
 }
 
-std::vector<double> const *ODEResults_t_address(ODEResults const *ptr)
-{
-    return &(ptr->t());
-}
-
-Matrix const *ODEResults_m_address(ODEResults const *ptr)
-{
-    return ptr->m().get();
-}
-
-void delete_ODEResults(ODEResults const *ptr)
-{
-    delete ptr;
-}
-
 namespace solvers
 {
 

@@ -7,6 +7,7 @@
 #include <memory>
 
 #include "lib/macros.hpp"
+#include "lib/storable.hpp"
 
 class Matrix;
 
@@ -34,7 +35,7 @@ private:
     std::vector<double> data_;
 };
 
-class Matrix
+class Matrix : public Storable
 {
 public:
     Matrix(const size_t n_rows, const size_t n_cols);
@@ -56,6 +57,8 @@ public:
     void insert_row(std::vector<double> &&r, const size_t i_row) { rows_[i_row] = std::make_shared<MatrixRow>(std::move(r)); }
 
     void resize(const size_t n_rows, const size_t n_cols);
+
+    std::string storable_name() const override { return "Matrix"; }
 
 private:
     size_t n_rows_;

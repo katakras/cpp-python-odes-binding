@@ -10,7 +10,7 @@
 
 class Matrix;
 
-class ODEResults
+class ODEResults : public Storable
 {
 public:
     ODEResults(std::vector<double> &&t, std::shared_ptr<Matrix> m);
@@ -24,7 +24,9 @@ public:
         return m_;
     }
 
-public:
+    std::string storable_name() const override { return "ODEResults"; }
+
+private:
     std::vector<double> t_;
     std::shared_ptr<Matrix> m_;
 };
@@ -32,7 +34,7 @@ public:
 namespace solvers
 {
 
-    class Solver
+    class Solver : public Storable
     {
     public:
         virtual std::shared_ptr<ODEResults> solve(const std::shared_ptr<systems::System> &system,
@@ -49,6 +51,8 @@ namespace solvers
                                           const double t0,
                                           const std::vector<double> &x0,
                                           const double T) const override;
+
+        std::string storable_name() const override { return "EulerSolve"; }
 
     private:
         double dt_;
