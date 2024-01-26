@@ -1,6 +1,5 @@
 #include <boost/test/unit_test.hpp>
 
-
 #include "lib/matrix.hpp"
 
 BOOST_AUTO_TEST_SUITE(matrices)
