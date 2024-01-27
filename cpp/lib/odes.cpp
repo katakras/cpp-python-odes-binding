@@ -76,25 +76,4 @@ namespace solvers
         return std::make_shared<ODEResults>(std::move(t), transformed_result);
     }
 
-    ODEResults const *euler(systems::System *const system_ptr, const double t0, std::vector<double> const *x0, const double T, const double dt)
-    {
-        const size_t system_size = x0->size();
-        const size_t n_steps = static_cast<size_t>((T - t0) / dt + 1);
-        const auto &result = std::make_shared<Matrix>(n_steps + 1u, system_size);
-        result->insert_row(*x0, 0u);
-
-        std::vector<double> t(n_steps + 1u, t0);
-
-        for (size_t i_step = 1; i_step < n_steps + 1; ++i_step)
-        {
-            const auto &prev_x = (*result)[i_step - 1u]->data();
-            result->insert_row(add_vectors(prev_x, product_by_scalar(dt, system_ptr->f(t0 + i_step * dt, prev_x))), i_step);
-            t[i_step] = t0 + i_step * dt;
-        }
-
-        const auto &transformed_result = system_ptr->transform(result);
-
-        return new ODEResults(std::move(t), transformed_result);
-    }
-
 }
