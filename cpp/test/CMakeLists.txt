@@ -15,6 +15,7 @@ add_cpp_test(matrices/matrix_resizing)
 add_cpp_test(systems/exponential_system_evaluation)
 add_cpp_test(systems/central_force_system_evaluation)
 add_cpp_test(solvers/euler_solver)
+add_cpp_test(solvers/kutta3_solver)
 
 set(DYLIB_FOLDER "../../build/lib")
 target_link_libraries(${PROJECT_NAME} ${LIB_PROJECT_NAME})

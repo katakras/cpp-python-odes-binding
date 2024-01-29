@@ -58,6 +58,21 @@ namespace solvers
         double dt_;
     };
 
+    class Kutta3Solver : public Solver
+    {
+    public:
+        Kutta3Solver(const double dt);
+        std::shared_ptr<ODEResults> solve(const std::shared_ptr<systems::System> &system,
+                                          const double t0,
+                                          const std::vector<double> &x0,
+                                          const double T) const override;
+
+        std::string storable_name() const override { return "Kutta3Solver"; }
+
+    private:
+        double dt_;
+    };
+
 } // namespace solvers
 
 #endif

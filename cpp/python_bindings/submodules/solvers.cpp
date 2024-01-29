@@ -82,6 +82,13 @@ namespace
         return object_cache::store_object(
             std::shared_ptr<solvers::Solver>{solver});
     }
+
+    size_t make_kutta3_solver(const double dt)
+    {
+        const auto &solver = std::make_shared<solvers::Kutta3Solver>(dt);
+        return object_cache::store_object(
+            std::shared_ptr<solvers::Solver>{solver});
+    }
 }
 
 DEFINE_PYTHON_SUBMODULE(solvers)
@@ -97,4 +104,5 @@ DEFINE_PYTHON_SUBMODULE(solvers)
     bp::def("solve_system", &::solve_system);
     bp::def("make_euler_solver", &::make_euler_solver);
     bp::def("unpack_ode_results", &::unpack_ode_results);
+    bp::def("make_kutta3_solver", &::make_kutta3_solver);
 }
